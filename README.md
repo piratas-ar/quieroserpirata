@@ -24,7 +24,7 @@ paquetes separados, en otras distros npm puede venir junto con nodejs)
 
 ### Clonar el proyecto
 
-Bajar el proyecto. Crea la carpeta quieroserpirata en el directorio que estémos.
+Crea la carpeta "quieroserpirata" dentro del directorio en que estémos y descarga los archivos ahí.
 
     git clone https://github.com/piratas-ar/quieroserpirata.git
 
@@ -33,9 +33,10 @@ Bajar el proyecto. Crea la carpeta quieroserpirata en el directorio que estémos
 
 Instalar las dependencias listadas en el archivo package.json.
 
+    cd quieroserpirata
     npm install
 
-Crea la carpeta node_modules dentro de quieroserpirata.
+Crea la carpeta "node_modules" dentro de "quieroserpirata".
 
 ### Correr
 

@@ -17,9 +17,45 @@ var materiales = {
 }
 
 // Objetos globales
-var engine;
-var world;
-var pirata;
+var engine, world, pirata, render;
+
+function setup_y_start() {
+  setup();
+  crear_suelo();
+  crear_pirata();
+  start();
+}
+
+function setup() {
+  // Creamos el motor y lo guardamos en la variable engine
+  // El motor se encarga de la fisica
+  engine = Engine.create();
+  engine.enableSleeping = true;
+
+  // Copiamos el mundo a la variable world
+  // El mundo lleva el registro de todos los objetos que interactuan
+  world = engine.world;
+
+  // Crear a renderer
+  // El renderer se encarga de dibujar las cosas
+  render = Render.create({
+      element: document.getElementById('pantalla'),
+      engine: engine,
+      options: {
+        width: config['ancho'],
+        height: config['alto'],
+        hasBounds: true
+      }
+  });
+}
+
+function start() {
+  // Correr el motor
+  Engine.run(engine);
+
+  // Correr renderer
+  Render.run(render);
+}
 
 function crear_pirata() {
   // Bodies.rectangle( posicion_x, posicion_y, ancho, alto [, opciones])
@@ -33,36 +69,4 @@ function crear_pirata() {
 function crear_suelo() {
   suelo = Bodies.rectangle(config['ancho']/2, config['alto'], config['ancho']*2, 30, materiales['piso']);
   World.add(world, suelo);
-}
-
-function setup() {
-  // Creamos el motor y lo guardamos en la variable engine
-  // El motor se encarga de la fisica
-  engine = Engine.create();
-  engine.enableSleeping = true;
-
-  // Copiamos el mundo a la variable world
-  // El mundo lleva el registro de todos los objetos que interactuan
-  world = engine.world;
-
-  // Correr el motor
-  Engine.run(engine);
-
-  crear_suelo();
-  crear_pirata();
-
-  // Crear a renderer
-  // El renderer se encarga de dibujar las cosas
-  var render = Render.create({
-      element: document.getElementById('pantalla'),
-      engine: engine,
-      options: {
-        width: config['ancho'],
-        height: config['alto'],
-        hasBounds: true
-      }
-  });
-
-  // Correr renderer
-  Render.run(render);
 }
