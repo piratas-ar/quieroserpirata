@@ -1,0 +1,15 @@
+{
+  "name": "quieroserpirata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "matter-js": "^0.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "piratas-ar",
+  "license": "PPL"
+}
